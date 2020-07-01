@@ -1,8 +1,8 @@
-import { drawing } from "../scripts/draw";
 const HEIGHT = 1254;
 const WIDTH = 614;
 
 const main = () => {
+  drawCollumn(10);
   bindingKey();
 };
 
@@ -27,5 +27,28 @@ const generateRamdomArray = (globalLength) => {
     if (arr.indexOf(random) === -1) arr.push(random);
   }
   return arr;
+};
+
+const drawChart = ()=>{
+  $(".chart")
+}
+
+const drawCollumn = (value) => {
+  $(".chart").append(collumInnerHTML("80%","20%"));
+};
+
+const collumInnerHTML = (white, value) => {
+  const whiteHeight = white;
+  const valueHeight = value;
+  let innerHTML =
+    '<div class="chart__collumn">' +
+    '<div class="chart__collumn_white-space" style="height:' +
+    whiteHeight +
+    '"></div>' +
+    '<div class="chart__collumn_value-space" style="height:' +
+    valueHeight +
+    '"></div>' +
+    "</div>";
+  return innerHTML;
 };
 main();
