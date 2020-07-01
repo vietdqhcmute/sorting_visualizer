@@ -9,11 +9,22 @@
       integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-    <h1>Data visualizer</h1>
-    <div class="text">Text</div>
-    <button class="btn btn-danger">Dangerous</button>
+    <h2>Data visualizer</h2>
+    <div class="container-layout">
+      <div class="title-bar">
+        <div class="group-button">
+          <button class="btn btn-default group-button__item js-sort-list">Sort</button>
+          <button class="btn btn-info group-button__item js-generate-list">Generate</button>
+          <div class="col-xs-2">
+            <input id="globalLength" class="form-control " type="number" value="10">
+          </div>
+        </div>
+      </div>
+      <div class="chart"></div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-1.12.4.min.js"
       integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
