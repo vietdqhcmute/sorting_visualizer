@@ -9,7 +9,7 @@ const getGlobalLength = () => {
 
 const bindingKey = () => {
   $(".js-sort-list").click(() => {
-    console.log(getGlobalLength());
+    sort();
   });
   $(".js-generate-list").click(() => {
     let randomArray = generateRamdomArray(getGlobalLength());
@@ -50,7 +50,9 @@ const collumInnerHTML = (whiteHeight, valueHeight, value) => {
   const whitePercentage = whiteHeight.toString() + "%";
   const valuePercentage = valueHeight.toString() + "%";
   let innerHTML =
-    '<div class="chart__collumn">' +
+    '<div id="col_' +
+    value +
+    '" class="chart__collumn">' +
     '<div class="chart__collumn_white-space" style="height:' +
     whitePercentage +
     '"></div>' +
@@ -64,4 +66,9 @@ const collumInnerHTML = (whiteHeight, valueHeight, value) => {
     "</div>";
   return innerHTML;
 };
+
+const sort = () =>{
+  swap(1, 3);
+}
+
 main();
