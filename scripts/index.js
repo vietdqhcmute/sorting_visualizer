@@ -1,8 +1,7 @@
-const HEIGHT = 1254;
-const WIDTH = 614;
-
+const WIDTH = 1254;
+const HEIGHT = 614;
+const MAX = 10;
 const main = () => {
-  drawCollumn(10);
   bindingKey();
 };
 
@@ -16,12 +15,13 @@ const bindingKey = () => {
   });
   $(".js-generate-list").click(() => {
     let randomArray = generateRamdomArray(getGlobalLength());
-    console.log(randomArray);
+    drawChart(randomArray);
   });
 };
 
 const generateRamdomArray = (globalLength) => {
   let arr = [];
+
   while (arr.length < globalLength) {
     let random = Math.floor(Math.random() * globalLength) + 1;
     if (arr.indexOf(random) === -1) arr.push(random);
@@ -29,12 +29,24 @@ const generateRamdomArray = (globalLength) => {
   return arr;
 };
 
-const drawChart = ()=>{
-  $(".chart")
-}
+const drawChart = (randomArray) => {
+  resetChart();
+  console.log(randomArray);
+  randomArray.forEach((e) => {
+    drawCollumn(e);
+  });
+};
 
 const drawCollumn = (value) => {
-  $(".chart").append(collumInnerHTML("80%","20%"));
+  let valueHeight = (value / MAX) * 100;
+  let whiteHeight = 100 - valueHeight;
+  $(".chart").append(
+    collumInnerHTML(whiteHeight.toString() + "%", valueHeight.toString() + "%")
+  );
+};
+
+const resetChart = () => {
+  $(".chart").empty();
 };
 
 const collumInnerHTML = (white, value) => {
