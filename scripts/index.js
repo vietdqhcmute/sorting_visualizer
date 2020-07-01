@@ -58,7 +58,7 @@ const collumInnerHTML = (whiteHeight, valueHeight, value) => {
     valuePercentage +
     '">' +
     "<div>" +
-    value +
+    // value +
     "</div>" +
     "</div>" +
     "</div>";

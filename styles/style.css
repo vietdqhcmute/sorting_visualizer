@@ -2,11 +2,14 @@ body {
   padding: 50px;
 }
 .container-layout {
+  max-width: 1280px;
+  max-height: 720px;
   width: 1280px;
   height: 720px;
   border: 2px solid;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .title-bar {
