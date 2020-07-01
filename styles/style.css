@@ -32,7 +32,8 @@ body {
 .chart__collumn_value-space {
   width: 100%;
   background-color: rgb(246, 119, 34);
-
+  border-right: 1px solid;
+  border-top: 1px solid;
 }
 .group-button {
   display: flex;

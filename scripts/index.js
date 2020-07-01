@@ -1,6 +1,4 @@
-const WIDTH = 1254;
-const HEIGHT = 614;
-const MAX = 10;
+var MAX;
 const main = () => {
   bindingKey();
 };
@@ -26,6 +24,7 @@ const generateRamdomArray = (globalLength) => {
     let random = Math.floor(Math.random() * globalLength) + 1;
     if (arr.indexOf(random) === -1) arr.push(random);
   }
+  MAX = arr.length;
   return arr;
 };
 
@@ -40,26 +39,28 @@ const drawChart = (randomArray) => {
 const drawCollumn = (value) => {
   let valueHeight = (value / MAX) * 100;
   let whiteHeight = 100 - valueHeight;
-  $(".chart").append(
-    collumInnerHTML(whiteHeight.toString() + "%", valueHeight.toString() + "%")
-  );
+  $(".chart").append(collumInnerHTML(whiteHeight, valueHeight, value));
 };
 
 const resetChart = () => {
   $(".chart").empty();
 };
 
-const collumInnerHTML = (white, value) => {
-  const whiteHeight = white;
-  const valueHeight = value;
+const collumInnerHTML = (whiteHeight, valueHeight, value) => {
+  const whitePercentage = whiteHeight.toString() + "%";
+  const valuePercentage = valueHeight.toString() + "%";
   let innerHTML =
     '<div class="chart__collumn">' +
     '<div class="chart__collumn_white-space" style="height:' +
-    whiteHeight +
+    whitePercentage +
     '"></div>' +
     '<div class="chart__collumn_value-space" style="height:' +
-    valueHeight +
-    '"></div>' +
+    valuePercentage +
+    '">' +
+    "<div>" +
+    value +
+    "</div>" +
+    "</div>" +
     "</div>";
   return innerHTML;
 };
